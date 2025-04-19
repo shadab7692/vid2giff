@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video to GIF Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Video to GIF Converter</h1>
+    <p>Upload a ~3-second video to convert it to a GIF.</p>
+    
+    <!-- Video upload -->
+    <input type="file" id="videoInput" accept="video/*">
+    <video id="videoPreview" controls style="display: none;"></video>
+    
+    <!-- Customization options -->
+    <div class="options">
+      <label>Frame Rate (fps):
+        <input type="number" id="frameRate" min="1" max="30" value="10">
+      </label>
+      <label>Width (px):
+        <input type="number" id="width" min="100" max="1280" value="320">
+      </label>
+      <label>Quality (1-10):
+        <input type="number" id="quality" min="1" max="10" value="8">
+      </label>
+    </div>
+    
+    <!-- Status and progress -->
+    <p id="status"></p>
+    <progress id="progressBar" value="0" max="100" style="display: none;"></progress>
+    
+    <!-- Conversion and output -->
+    <button id="convertBtn" disabled>Convert to GIF</button>
+    <img id="gifPreview" style="display: none;" alt="GIF Preview">
+    <a id="downloadLink" style="display: none;">Download GIF</a>
+  </div>
+  <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
